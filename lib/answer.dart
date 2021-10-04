@@ -8,12 +8,23 @@ class Answer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(primary: Colors.blue),
-        child: Text(answerTxt),
-        onPressed: selectHandle,
-      ),
-    );
+        width: double.infinity,
+        child: Container(
+          margin: EdgeInsets.only(bottom: 6),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(primary: Colors.blue),
+            child: Container(
+              margin: EdgeInsets.all(10),
+              child: Text(
+                answerTxt,
+                style: TextStyle(
+                    fontSize: 18,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+            onPressed: selectHandle,
+          ),
+        ));
   }
 }

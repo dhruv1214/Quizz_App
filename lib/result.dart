@@ -7,9 +7,9 @@ class Result extends StatelessWidget {
 
   String get resultPhrase {
     var resultText = "You did it";
-    if (result >= 40) {
+    if (result >= 45) {
       resultText = 'You are awesome!';
-    } else if (result > 10 && result < 40) {
+    } else if (result > 20 && result < 45) {
       resultText = "Better luck next time!";
     } else {
       resultText = "Sorry... you did not score well";
@@ -20,25 +20,39 @@ class Result extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          Text(
-            resultPhrase,
-            style: TextStyle(
-              fontSize: 36,
-              fontWeight: FontWeight.bold,
-            ),
-            textAlign: TextAlign.center,
+    return Column(
+      children: [
+        Container(
+          margin: EdgeInsets.all(16),
+          child: Column(
+            children: [
+              Text(
+                resultPhrase,
+                style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              Padding(padding: EdgeInsets.only(top: 8)),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(primary: Colors.blue),
+                child: Container(
+                  margin: EdgeInsets.all(10),
+                  child: Text(
+                    "Restart Quizz!",
+                    style: TextStyle(
+                        fontSize: 18,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
+                onPressed: resetHandler,
+              )
+            ],
           ),
-          TextButton(
-            child: Text('Restart Quizz!',textAlign: TextAlign.center,),
-            style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all(Colors.orangeAccent)),
-            onPressed: resetHandler,
-          ),
-        ],
-      ),
+        )
+      ],
     );
   }
 }

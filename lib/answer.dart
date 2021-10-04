@@ -14,7 +14,7 @@ class Answer extends StatelessWidget {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(primary: Colors.blue),
             child: Container(
-              margin: EdgeInsets.all(10),
+              margin: EdgeInsets.all(15),//changed from 10 to 15
               child: Text(
                 answerTxt,
                 style: TextStyle(

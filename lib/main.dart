@@ -4,10 +4,36 @@ import 'package:quiz_app/question.dart';
 import 'package:quiz_app/result.dart';
 import './quiz.dart';
 import './result.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(SplashScreen());//first screen is splash screen
 }
+
+//splash screen code
+//with animated splash screen dart package
+//for further detail on slash screen you can mail me on aryamangurjar@gmail.com 😄
+
+class SplashScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        
+        home: AnimatedSplashScreen(
+          duration: 1200,
+          splash: Image.asset('images/quiz.png'),//go to image and chose the image you want to add 
+                                                  //first put that image in the image folder and than link it as i have done :-)
+                                                  //to change the image size just type Image.asset('images/quiz.png',height: number.0,width : number.0), 
+          nextScreen: MyApp(), //next screen main screen
+          splashTransition: SplashTransition.fadeTransition,
+          
+          backgroundColor: Colors.purple
+        )
+    );
+  }
+}
+
+//maintainer code (no changes it is as it is 😊)
 
 class MyApp extends StatefulWidget {
   @override

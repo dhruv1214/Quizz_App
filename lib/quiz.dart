@@ -19,9 +19,11 @@ class Quiz extends StatelessWidget {
           margin: EdgeInsets.only(right: 16, left: 16),
           child: Column(
             children: [
+              SizedBox(height: 70.0),//added sized box so that it looks good ;)
               Question(
                 questions[questionIndex]['questions'],
               ),
+              SizedBox(height: 100.0),//added sized box so that it looks good ;)
               ...(questions[questionIndex]['answers']
                       as List<Map<String, Object>>)
                   .map((answer) {

@@ -21,14 +21,12 @@ class _MyAppState extends State<MyApp> {
 
   var _totalScore = 0;
 
-
-  void _resetQuiz(){
-    setState(() {
-      
-    });
+  void _resetQuiz() {
+    setState(() {});
     questionIndex = 0;
-     _totalScore = 0;
+    _totalScore = 0;
   }
+
   void answerQues(int score) {
     _totalScore += _totalScore + score;
 
@@ -69,23 +67,34 @@ class _MyAppState extends State<MyApp> {
           {'text': '1780', 'score': 0},
         ],
       },
+      {
+        'questions': 'When python programming language is created?',
+        'answers': [
+          {'text': '1990', 'score': 20},
+          {'text': '1988', 'score': 0},
+          {'text': '1992', 'score': 0},
+          {'text': '1995', 'score': 0},
+        ],
+      },
     ];
 
     return MaterialApp(
       themeMode: ThemeMode.light,
-      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      theme:
+          ThemeData(primarySwatch: Colors.deepPurple, fontFamily: 'Montserrat'),
       home: Scaffold(
           appBar: AppBar(
-            brightness: Brightness.dark,
-            centerTitle: true,
-            title: Text("QUIZ"),
+            title: Text(
+              "QUIZ",
+              style: TextStyle(fontWeight: FontWeight.w700, letterSpacing: 2),
+            ),
           ),
           body: questionIndex < _questions.length
               ? Quiz(
                   answerQues: answerQues,
                   questionIndex: questionIndex,
                   questions: _questions)
-              : Result(_totalScore,_resetQuiz)),
+              : Result(_totalScore, _resetQuiz)),
       debugShowCheckedModeBanner: false,
     );
   }

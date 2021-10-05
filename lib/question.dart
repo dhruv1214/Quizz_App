@@ -11,7 +11,8 @@ class Question extends StatelessWidget {
       width: double.infinity,
       margin: EdgeInsets.only(top: 16, bottom: 16),
       child: Text(questionTxt,
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 24)),
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 28),//changed font size to 28 from 24
+          textAlign: TextAlign.center,), //Aligned text to center
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/constant.dart';
 
 class Result extends StatelessWidget {
   final int result;
@@ -6,11 +7,9 @@ class Result extends StatelessWidget {
   Result(this.result, this.resetHandler);
 
   String get resultPhrase {
-    var resultText =
-        "You did it \n😉"; //added emoji so that it is more interactive
+    var resultText = "You did it \n😉";
     if (result >= 45) {
-      resultText =
-          'You are awesome! \n🤩'; //for adding emojis press (window key) + (;)
+      resultText = 'You are awesome! \n🤩';
     } else if (result > 20 && result < 45) {
       resultText = "Better luck next time! \n😊";
     } else {
@@ -25,10 +24,10 @@ class Result extends StatelessWidget {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.all(16),
+          margin: EdgeInsets.all(kSize * 4),
           child: Column(
             children: [
-              SizedBox(height: 60.0),
+              SizedBox(height: kSize * 15),
               Text(
                 'Your score',
                 style: TextStyle(
@@ -37,12 +36,18 @@ class Result extends StatelessWidget {
               ),
               Container(
                 width: double.infinity,
-                margin: EdgeInsets.all(24.0),
-                padding: EdgeInsets.symmetric(vertical: 32.0),
+                margin: EdgeInsets.all(
+                  kSize * 6,
+                ),
+                padding: EdgeInsets.symmetric(
+                  vertical: kSize * 8,
+                ),
                 decoration: BoxDecoration(
                   color: Colors.lightBlue[300],
                   borderRadius: BorderRadius.all(
-                    Radius.circular(20.0),
+                    Radius.circular(
+                      kSize * 5,
+                    ),
                   ),
                 ),
                 child: Text(
@@ -62,18 +67,27 @@ class Result extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 70.0), //added sized box so that it looks good ;)
-              Padding(padding: EdgeInsets.only(top: 8)),
+              SizedBox(
+                height: kSize * 5,
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: kSize * 2,
+                ),
+              ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(primary: Colors.blue),
                 child: Container(
-                  margin: EdgeInsets.all(10),
+                  margin: EdgeInsets.all(
+                    kSize * 3,
+                  ),
                   child: Text(
                     "Restart Quizz!",
                     style: TextStyle(
-                        fontSize: 18,
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.w500),
+                      fontSize: 18,
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
                 onPressed: resetHandler,

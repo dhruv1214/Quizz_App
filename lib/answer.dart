@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/constant.dart';
 
 class Answer extends StatelessWidget {
   final Function selectHandle;
@@ -14,13 +15,16 @@ class Answer extends StatelessWidget {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(primary: Colors.blue),
             child: Container(
-              margin: EdgeInsets.all(15),//changed from 10 to 15
+              margin: EdgeInsets.all(
+                kSize * 4,
+              ),
               child: Text(
                 answerTxt,
                 style: TextStyle(
-                    fontSize: 18,
-                    letterSpacing: 1,
-                    fontWeight: FontWeight.w500),
+                  fontSize: 18,
+                  letterSpacing: 1,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
             onPressed: selectHandle,

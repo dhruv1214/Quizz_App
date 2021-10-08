@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/constant.dart';
 
 class Question extends StatelessWidget {
   final String questionTxt;
@@ -9,10 +10,17 @@ class Question extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.only(top: 16, bottom: 16),
-      child: Text(questionTxt,
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 28),//changed font size to 28 from 24
-          textAlign: TextAlign.center,), //Aligned text to center
+      margin: EdgeInsets.symmetric(
+        vertical: kSize * 4,
+      ),
+      child: Text(
+        questionTxt,
+        style: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: 28,
+        ),
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }

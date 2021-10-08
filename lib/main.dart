@@ -1,13 +1,12 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-// ignore: unused_import
-import 'package:quiz_app/question.dart';
 import 'package:quiz_app/result.dart';
+
 import './quiz.dart';
 import './result.dart';
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 void main() {
-  runApp(SplashScreen());//first screen is splash screen
+  runApp(SplashScreen()); //first screen is splash screen
 }
 
 //splash screen code
@@ -18,18 +17,16 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        
         home: AnimatedSplashScreen(
-          duration: 1200,
-          splash: Image.asset('images/quiz.png'),//go to image and chose the image you want to add 
-                                                  //first put that image in the image folder and than link it as i have done :-)
-                                                  //to change the image size just type Image.asset('images/quiz.png',height: number.0,width : number.0), 
-          nextScreen: MyApp(), //next screen main screen
-          splashTransition: SplashTransition.fadeTransition,
-          
-          backgroundColor: Colors.purple
-        )
-    );
+            duration: 1200,
+            splash: Image.asset(
+              'images/quiz.png',
+            ), //go to image and chose the image you want to add
+            //first put that image in the image folder and than link it as i have done :-)
+            //to change the image size just type Image.asset('images/quiz.png',height: number.0,width : number.0),
+            nextScreen: MyApp(), //next screen main screen
+            splashTransition: SplashTransition.fadeTransition,
+            backgroundColor: Colors.purple));
   }
 }
 
@@ -59,8 +56,6 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       questionIndex = questionIndex + 1;
     });
-
-    print(questionIndex);
   }
 
   @override
@@ -106,13 +101,19 @@ class _MyAppState extends State<MyApp> {
 
     return MaterialApp(
       themeMode: ThemeMode.light,
-      theme:
-          ThemeData(primarySwatch: Colors.deepPurple, fontFamily: 'Montserrat'),
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple,
+        fontFamily: 'Montserrat',
+      ),
       home: Scaffold(
           appBar: AppBar(
+            brightness: Brightness.dark,
             title: Text(
               "QUIZ",
-              style: TextStyle(fontWeight: FontWeight.w700, letterSpacing: 2),
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                letterSpacing: 2,
+              ),
             ),
           ),
           body: questionIndex < _questions.length
@@ -121,7 +122,6 @@ class _MyAppState extends State<MyApp> {
                   questionIndex: questionIndex,
                   questions: _questions)
               : Result(_totalScore, _resetQuiz)),
-      debugShowCheckedModeBanner: false,
     );
   }
 }

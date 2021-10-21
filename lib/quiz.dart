@@ -8,8 +8,9 @@ class Quiz extends StatelessWidget {
   final List<Map<String, Object>> questions;
   final int questionIndex;
   final Function answerQues;
-
+  final int totalquestion;
   Quiz({
+    @required this.totalquestion,
     @required this.questions,
     @required this.answerQues,
     @required this.questionIndex,
@@ -26,6 +27,10 @@ class Quiz extends StatelessWidget {
             children: [
               SizedBox(
                 height: kSize * 18,
+              ),
+              Text(
+                'Question ${questionIndex + 1}/$totalquestion',
+                style: TextStyle(fontWeight: FontWeight.bold),
               ), //added sized box so that it looks good ;)
               Question(
                 questions[questionIndex]['questions'],

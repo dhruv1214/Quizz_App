@@ -118,7 +118,6 @@ class _MyAppState extends State<MyApp> {
           ),
           body: questionIndex < _questions.length
               ? Quiz(
-                  totalquestion: _questions.length,
                   answerQues: answerQues,
                   questionIndex: questionIndex,
                   questions: _questions)
